@@ -26,6 +26,10 @@
 		</header>
 		<div role="main" class="main">
       <div class="new">
+        <?php $errorMessages = $errors->all('<pre>:message</pre>'); ?>
+        @foreach ($errorMessages as $message)
+          {{ $message }}
+        @endforeach
         {{ Form::open() }}
         <p>
           {{ Form::label('subject', 'Subject') }}
