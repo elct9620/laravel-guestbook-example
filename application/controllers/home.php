@@ -6,7 +6,6 @@ class Home_Controller extends Base_Controller {
 
   public function __construct()
   {
-    $this->filter('before', 'auth')->only('index')->on('post');
     $this->filter('before', 'csrf')->on('post');
   }
 
@@ -38,7 +37,6 @@ class Home_Controller extends Base_Controller {
       'content' => $inputs['content'],
       'user_id' => Auth::user()->id
     ));
-
     return Redirect::home();
   }
 
