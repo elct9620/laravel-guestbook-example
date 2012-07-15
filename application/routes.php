@@ -33,7 +33,7 @@
 */
 
 Router::controller('home');
-Router::controller('session');
+Router::controller('user');
 
 /*
 |--------------------------------------------------------------------------
