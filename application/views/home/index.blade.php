@@ -62,10 +62,10 @@
           <h2>
             {{ e($comment->subject) }}
             <small> by
-            @if ($comment->user()->nickname)
-              {{ $comment->user()->nickname }}
+            @if ($comment->user->nickname)
+              {{ $comment->user->nickname }}
             @else
-              {{ $comment->user()->username }}
+              {{ $comment->user->username }}
             @endif
             </small>
           </h2>

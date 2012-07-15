@@ -35,7 +35,7 @@ class Home_Controller extends Base_Controller {
     Comment::create(array(
       'subject' => $inputs['subject'],
       'content' => $inputs['content'],
-      'user_id' => Auth::user()->ID
+      'user_id' => Auth::user()->id
     ));
 
     return Redirect::home();
