@@ -21,7 +21,13 @@
 			<h1>Guestbook</h1>
 			<h2>A simple guestbook</h2>
       @if ( Auth::check() )
-        Hello, {{ Auth::user()->nickname || Auth::user()->username }} | {{ HTML::link('user/logout', 'Logout') }}
+        Hello,
+        @if (Auth::user()->nickname)
+          {{ Auth::user()->nickname }}
+        @else
+          {{ Auth::user()->username }}
+        @endif
+         | {{ HTML::link('user/logout', 'Logout') }}
       @else
         {{ HTML::link('user/new', 'Register') }} | {{ HTML::link('user/login', 'Login') }}
       @endif
@@ -29,6 +35,7 @@
 			</p>
 		</header>
 		<div role="main" class="main">
+      @if ( Auth::check() )
       <div class="new">
         <?php $errorMessages = $errors->all('<pre>:message</pre>'); ?>
         @foreach ($errorMessages as $message)
@@ -49,6 +56,7 @@
         {{ Form::close() }}
       </div>
       <hr />
+      @endif
 			<div class="home">
         @forelse ($comments->results as $comment)
           <h2>{{ e($comment->subject) }}</h2>

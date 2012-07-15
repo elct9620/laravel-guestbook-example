@@ -56,11 +56,11 @@
         'password' => $inputs['password']
       );
 
-      if( !Auth::attempt($credentials) ){
+      if( Auth::attempt($credentials) ){
         return Redirect::home();
       }
 
-      return Redirect::to('session/login');
+      return Redirect::to('user/login');
     }
 
     public function get_logout()
