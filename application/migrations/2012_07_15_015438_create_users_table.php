@@ -14,6 +14,7 @@ class Create_Users_Table {
       $table->string('username');
       $table->string('password');
       $table->string('nickname');
+      $table->timestamps();
 
       $table->unique('username');
     });
