@@ -23,10 +23,11 @@
       @if ( Auth::check() )
         Hello,
         @if (Auth::user()->nickname)
-          {{ Auth::user()->nickname }}
+          {{ e(Auth::user()->nickname) }}
         @else
           {{ Auth::user()->username }}
         @endif
+         | {{ HTML::link('user/profile', 'Profile') }}
          | {{ HTML::link('user/logout', 'Logout') }}
       @else
         {{ HTML::link('user/new', 'Register') }} | {{ HTML::link('user/login', 'Login') }}
@@ -63,9 +64,9 @@
             {{ e($comment->subject) }}
             <small> by
             @if ($comment->user->nickname)
-              {{ $comment->user->nickname }}
+              {{ e($comment->user->nickname) }}
             @else
-              {{ $comment->user->username }}
+              {{ e($comment->user->username) }}
             @endif
             </small>
           </h2>

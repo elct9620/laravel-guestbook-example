@@ -4,6 +4,11 @@
   {
     public $restful = true;
 
+    public function __construct()
+    {
+      $this->filter('before', 'auth')->only(array('profile', 'logout'));
+    }
+
     public function get_new()
     {
       return View::make('user.new');
@@ -40,7 +45,22 @@
 
     public function post_profile()
     {
+      $inputs = Input::all();
+      $rules = array(
+        'nickname' => 'required'
+      );
 
+      $validation = Validator::make($inputs, $rules);
+
+      if( $validation->fails() ) {
+        return Redirect::to('user/profile')->with_errors($validation);
+      }
+
+      $user = Auth::user();
+      $user->nickname = $inputs['nickname'];
+      $user->save();
+
+      return Redirect::home();
     }
 
     public function get_login()
