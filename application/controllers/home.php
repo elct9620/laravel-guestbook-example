@@ -7,6 +7,7 @@ class Home_Controller extends Base_Controller {
   public function __construct()
   {
     $this->filter('before', 'auth')->only('index')->on('post');
+    $this->filter('before', 'csrf')->on('post');
   }
 
 	public function get_index()

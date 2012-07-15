@@ -31,6 +31,7 @@
           {{ $message }}
         @endforeach
         {{ Form::open() }}
+        {{ Form::token() }}
         <p>
           {{ Form::label('username', 'Username') }}
           {{ Form::text('username') }}

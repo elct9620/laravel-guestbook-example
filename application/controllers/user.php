@@ -7,6 +7,7 @@
     public function __construct()
     {
       $this->filter('before', 'auth')->only(array('profile', 'logout'));
+      $this->filter('before', 'csrf')->on('post');
     }
 
     public function get_new()

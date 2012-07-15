@@ -43,6 +43,7 @@
           {{ $message }}
         @endforeach
         {{ Form::open() }}
+        {{ Form::token() }}
         <p>
           {{ Form::label('subject', 'Subject') }}
           {{ Form::text('subject') }}
