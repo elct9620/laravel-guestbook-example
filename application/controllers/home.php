@@ -4,6 +4,11 @@ class Home_Controller extends Base_Controller {
 
   public $restful = true;
 
+  public function __construct()
+  {
+    $this->filter('before', 'auth')->only('index')->on('post');
+  }
+
 	public function get_index()
 	{
 
@@ -29,7 +34,8 @@ class Home_Controller extends Base_Controller {
 
     Comment::create(array(
       'subject' => $inputs['subject'],
-      'content' => $inputs['content']
+      'content' => $inputs['content'],
+      'user_id' => Auth::user()->ID
     ));
 
     return Redirect::home();
