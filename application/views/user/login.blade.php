@@ -33,15 +33,15 @@
         {{ Form::open() }}
         {{ Form::token() }}
         <p>
-          {{ Form::label('username', 'Username') }}
+          {{ Form::label('username', __('common.username')) }}
           {{ Form::text('username') }}
         </p>
         <p>
-          {{ Form::label('password', 'Password') }}
+          {{ Form::label('password', __('common.password')) }}
           {{ Form::password('password') }}
         </p>
         <p>
-          {{ Form::submit('Login') }}
+          {{ Form::submit(__('common.login')) }}
         </p>
         {{ Form::close() }}
       </div>

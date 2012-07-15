@@ -33,11 +33,11 @@
         {{ Form::open() }}
         {{ Form::token() }}
         <p>
-          {{ Form::label('nickname', 'Nickname') }}
+          {{ Form::label('nickname', __('common.nickname')) }}
           {{ Form::text('nickname', e(Auth::user()->nickname)) }}
         </p>
         <p>
-          {{ Form::submit('Save') }}
+          {{ Form::submit(__('common.save')) }}
         </p>
         {{ Form::close() }}
       </div>

@@ -27,10 +27,10 @@
         @else
           {{ Auth::user()->username }}
         @endif
-         | {{ HTML::link('user/profile', 'Profile') }}
-         | {{ HTML::link('user/logout', 'Logout') }}
+         | {{ HTML::link('user/profile', __('common.profile')) }}
+         | {{ HTML::link('user/logout', __('common.logout')) }}
       @else
-        {{ HTML::link('user/new', 'Register') }} | {{ HTML::link('user/login', 'Login') }}
+        {{ HTML::link('user/new', __('common.register')) }} | {{ HTML::link('user/login', __('common.login')) }}
       @endif
 			<p class="intro-text" style="margin-top: 45px;">
 			</p>
@@ -45,15 +45,15 @@
         {{ Form::open() }}
         {{ Form::token() }}
         <p>
-          {{ Form::label('subject', 'Subject') }}
+          {{ Form::label('subject', __('common.subject')) }}
           {{ Form::text('subject') }}
         </p>
         <p>
-          {{ Form::label('content', 'Content') }}
+          {{ Form::label('content', __('common.content')) }}
           {{ Form::textarea('content') }}
         </p>
         <p>
-          {{ Form::submit('Comment') }}
+          {{ Form::submit(__('common.comment')) }}
         </p>
         {{ Form::close() }}
       </div>
@@ -73,7 +73,7 @@
           </h2>
           <pre>{{ e($comment->content) }}</pre>
         @empty
-          <pre> No comment be found! </pre>
+          <pre>{{  __('common.no_comment') }} </pre>
         @endforelse
 			</div>
 		</div>

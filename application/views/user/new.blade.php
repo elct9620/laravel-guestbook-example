@@ -33,19 +33,19 @@
         {{ Form::open() }}
         {{ Form::token() }}
         <p>
-          {{ Form::label('username', 'Username') }}
+          {{ Form::label('username', __('common.username')) }}
           {{ Form::text('username') }}
         </p>
         <p>
-          {{ Form::label('password', 'Password') }}
+          {{ Form::label('password', __('common.password')) }}
           {{ Form::password('password') }}
         </p>
         <p>
-          {{ Form::label('password_confirm', 'Password Confirm') }}
+          {{ Form::label('password_confirm', __('common.password_confirm')) }}
           {{ Form::password('password_confirm') }}
         </p>
         <p>
-          {{ Form::submit('Regiester') }}
+          {{ Form::submit(__('common.register')) }}
         </p>
         {{ Form::close() }}
       </div>
