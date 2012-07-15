@@ -59,7 +59,16 @@
       @endif
 			<div class="home">
         @forelse ($comments->results as $comment)
-          <h2>{{ e($comment->subject) }}</h2>
+          <h2>
+            {{ e($comment->subject) }}
+            <small> by
+            @if ($comment->user()->nickname)
+              {{ $comment->user()->nickname }}
+            @else
+              {{ $comment->user()->username }}
+            @endif
+            </small>
+          </h2>
           <pre>{{ e($comment->content) }}</pre>
         @empty
           <pre> No comment be found! </pre>
